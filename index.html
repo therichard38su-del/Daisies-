@@ -526,7 +526,6 @@
       if (!found[i]){
         found[i] = true;
         progressDot.classList.add('found');
-        try { localStorage.setItem('isa_daisy_' + i, '1'); } catch(e){}
       }
       var v = verses[i];
       versePanel.classList.remove('placeholder');
@@ -547,15 +546,6 @@
     daisy.addEventListener('keydown', function(e){
       if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); reveal(); }
     });
-
-    // restore previously discovered state
-    try {
-      if (localStorage.getItem('isa_daisy_' + i) === '1'){
-        daisy.classList.add('open');
-        found[i] = true;
-        progressDot.classList.add('found');
-      }
-    } catch(e){}
 
     unit.appendChild(daisy);
     allDaisies.push(daisy);
